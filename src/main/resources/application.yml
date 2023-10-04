@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/deep_card
+    username: root
+    hikari:
+      password: rnwkgus
+  jpa:
+    hibernate:
+      ddl-auto: update
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 80MB
+      max-request-size: 90MB
+
+#webClient:
+#  servers:
+#    userServer:
+#      path:
+#    imageServer:
+#      path:
