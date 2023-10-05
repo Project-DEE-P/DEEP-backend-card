@@ -15,9 +15,14 @@ spring:
       max-file-size: 80MB
       max-request-size: 90MB
 
-#webClient:
-#  servers:
-#    userServer:
-#      path:
-#    imageServer:
-#      path:
+webClient:
+  servers:
+    userServer:
+      path: http://127.0.0.1:8080
+    imageServer:
+      path: http://101.101.217.155:8083
+
+web:
+  path: http://127.0.0.1:3000
+  cardView:
+    path: /card/
