@@ -2,7 +2,7 @@ package com.dragonest.deepbackendcard.global.util;
 
 import com.dragonest.deepbackendcard.global.config.webClient.WebClientConfig;
 import com.dragonest.deepbackendcard.global.lib.webClient.dto.response.ImageUploadResponse;
-import com.dragonest.deepbackendcard.global.lib.webClient.dto.response.ValidatedUser;
+import com.dragonest.deepbackendcard.global.lib.webClient.dto.response.ValidatedResponse;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -35,13 +35,13 @@ public class WebClientUtil {
                 .block();
     }
 
-    public ValidatedUser validate(String token) {
+    public ValidatedResponse validate(String token) {
         return webClientConfig.webClient().method(HttpMethod.POST)
-                .uri(userServerPath + "/v1/api/auth/jwt/validate")
+//                .uri(userServerPath + "/v1/api/auth/jwt/validate")
+                .uri(userServerPath + "/v1/api/auth/validate")
                 .header("Authorization", token)
-                .contentType(MediaType.APPLICATION_JSON)
                 .retrieve()
-                .bodyToMono(ValidatedUser.class)
+                .bodyToMono(ValidatedResponse.class)
                 .block();
     }
 }

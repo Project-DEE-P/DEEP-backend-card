@@ -1,6 +1,6 @@
 package com.dragonest.deepbackendcard.global.lib.webClient.dto.response;
 
-import com.dragonest.deepbackendcard.global.lib.webClient.dto.ImageData;
+import com.dragonest.deepbackendcard.global.lib.webClient.dto.ValidateData;
 import lombok.*;
 
 @Getter
@@ -8,9 +8,9 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class ImageUploadResponse {
+public class ValidatedResponse {
 
-    private int code;
+    private int statusCode;
     private String message;
-    private ImageData data;
+    private ValidateData data;
 }

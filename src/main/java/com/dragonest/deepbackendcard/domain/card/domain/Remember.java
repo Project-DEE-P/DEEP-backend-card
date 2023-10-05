@@ -19,6 +19,6 @@ public class Remember {
     @Column(nullable = false)
     private String uid;
 
-    @Column(nullable = false)
-    private String cardId;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Card card;
 }

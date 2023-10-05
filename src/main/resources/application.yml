@@ -1,3 +1,6 @@
+server:
+  port: 8082
+
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
@@ -18,11 +21,6 @@ spring:
 webClient:
   servers:
     userServer:
-      path: http://127.0.0.1:8080
+      path: http://172.20.10.3:8081
     imageServer:
       path: http://101.101.217.155:8083
-
-web:
-  path: http://127.0.0.1:3000
-  cardView:
-    path: /card/
