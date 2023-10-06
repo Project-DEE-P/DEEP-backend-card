@@ -31,7 +31,7 @@ public class CardService {
 
     @Transactional(rollbackFor = Exception.class)
     public void createCard(MultipartFile cardImage, ValidatedResponse validatedUser) {
-        log.info("{}", cardImage);
+        log.info("[Request] image: {}", cardImage.getOriginalFilename());
         if (cardImage == null) throw ImageNotExistException.EXCEPTION;
         MultipartBodyBuilder builder = new MultipartBodyBuilder();
         builder.part("multipart-file-image", cardImage.getResource());
@@ -64,6 +64,7 @@ public class CardService {
     }
 
     public void updateCard(MultipartFile cardImage, String id, ValidatedResponse validatedUser) {
+        log.info("[Request] image: {}", cardImage.getOriginalFilename());
         if (cardImage == null) throw ImageNotExistException.EXCEPTION;
         MultipartBodyBuilder builder = new MultipartBodyBuilder();
         builder.part("multipart-file-image", cardImage.getResource());

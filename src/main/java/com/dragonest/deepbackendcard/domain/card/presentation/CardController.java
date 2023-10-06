@@ -22,7 +22,7 @@ public class CardController {
 
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseData<Object> create(@RequestParam("card-image") MultipartFile cardImage, @RequestHeader("Authorization") String token) {
+    public ResponseData<Object> create(@RequestParam("card_image") MultipartFile cardImage, @RequestHeader("Authorization") String token) {
         cardService.createCard(cardImage, webClientUtil.validate(token));
         return ResponseData.of(201, "success");
     }
@@ -54,7 +54,7 @@ public class CardController {
 
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseData<Object> update(@RequestParam("card-image") MultipartFile cardImage, @PathVariable("id") String id, @RequestHeader("Authorization") String token) {
+    public ResponseData<Object> update(@RequestParam("card_image") MultipartFile cardImage, @PathVariable("id") String id, @RequestHeader("Authorization") String token) {
         cardService.updateCard(cardImage, id, webClientUtil.validate(token));
         return ResponseData.of(200, "success");
     }

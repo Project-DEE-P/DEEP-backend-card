@@ -1,5 +1,13 @@
 server:
   port: 8082
+  tomcat:
+    basedir: .
+    accesslog:
+      enabled: true
+      suffix: .txt
+      directory: logs
+      file-date-format: yyyy-MM-dd-HH
+      pattern: '[%{yyyy-MM-dd HH:mm:ss}t] %s "%r" requested.'
 
 spring:
   datasource:
@@ -21,6 +29,6 @@ spring:
 webClient:
   servers:
     userServer:
-      path: http://172.20.10.3:8081
+      path: http://10.80.162.14:8081
     imageServer:
       path: http://101.101.217.155:8083
