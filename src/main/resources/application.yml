@@ -16,6 +16,7 @@ spring:
     username: root
     hikari:
       password: rnwkgus
+#      password: Qwe123!@#
   jpa:
     hibernate:
       ddl-auto: update
@@ -29,6 +30,10 @@ spring:
 webClient:
   servers:
     userServer:
-      path: http://10.80.162.14:8081
+      path: http://220.122.166.177:4000
+#      path: http://localhost:8081
+#      path: http://10.80.161.125:8081
     imageServer:
-      path: http://101.101.217.155:8083
+      key: d15ee2fe18d2ebe2ef7afda51ffd3114e5cd1f29dc8fd70e3ffee96b698ceed027a0
+      path: http://220.112.166.117:4000
+#      path: http://localhost:8083

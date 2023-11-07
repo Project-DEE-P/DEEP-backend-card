@@ -1,0 +1,17 @@
+[2023-11-07 20:33:15] 500 "POST /v2/api/card/image HTTP/1.1" requested.
+[2023-11-07 20:36:46] 400 "POST /v2/api/card/image HTTP/1.1" requested.
+[2023-11-07 20:36:47] 400 "POST /v2/api/card/image HTTP/1.1" requested.
+[2023-11-07 20:36:48] 400 "POST /v2/api/card/image HTTP/1.1" requested.
+[2023-11-07 20:36:57] 500 "POST /v2/api/card/image HTTP/1.1" requested.
+[2023-11-07 20:41:23] 500 "POST /v2/api/card/image HTTP/1.1" requested.
+[2023-11-07 20:41:37] 500 "POST /v2/api/card/image HTTP/1.1" requested.
+[2023-11-07 20:43:05] 500 "POST /v2/api/card/image HTTP/1.1" requested.
+[2023-11-07 20:43:07] 500 "POST /v2/api/card/image HTTP/1.1" requested.
+[2023-11-07 20:48:44] 500 "POST /v2/api/card/image HTTP/1.1" requested.
+[2023-11-07 20:48:46] 500 "POST /v2/api/card/image HTTP/1.1" requested.
+[2023-11-07 20:48:46] 500 "POST /v2/api/card/image HTTP/1.1" requested.
+[2023-11-07 20:48:47] 500 "POST /v2/api/card/image HTTP/1.1" requested.
+[2023-11-07 20:48:47] 500 "POST /v2/api/card/image HTTP/1.1" requested.
+[2023-11-07 20:48:51] 500 "POST /v2/api/card/image HTTP/1.1" requested.
+[2023-11-07 20:49:03] 500 "POST /v2/api/card/image HTTP/1.1" requested.
+[2023-11-07 20:49:49] 500 "POST /v2/api/card/image HTTP/1.1" requested.

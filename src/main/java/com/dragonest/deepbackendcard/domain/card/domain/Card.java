@@ -7,7 +7,6 @@ import lombok.*;
 @Entity
 @Table(name = "card")
 @Getter
-@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -21,5 +20,33 @@ public class Card extends BaseTimeEntity {
     private String uid;
 
     @Column(nullable = false)
-    private String imagePath;
+    private String template;
+
+    @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = false)
+    private String position;
+
+    @Column(nullable = false)
+    private String department;
+
+    @Column(nullable = false)
+    private String phone;
+
+    @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
+    private String github;
+
+    public void update(String template, String name, String position, String department, String phone, String email, String github) {
+        this.template = template;
+        this.name = name;
+        this.position = position;
+        this.department = department;
+        this.phone = phone;
+        this.email = email;
+        this.github = github;
+    }
 }

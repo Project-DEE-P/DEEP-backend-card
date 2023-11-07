@@ -1,4 +1,4 @@
-package com.dragonest.deepbackendcard.global.lib.webClient.dto;
+package com.dragonest.deepbackendcard.global.lib.webClient.dto.response.data;
 
 import lombok.*;
 
@@ -9,5 +9,5 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ImageData {
 
-    private String id;
+    private String ident;
 }

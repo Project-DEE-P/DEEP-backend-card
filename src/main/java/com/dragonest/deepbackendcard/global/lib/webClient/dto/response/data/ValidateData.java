@@ -1,4 +1,4 @@
-package com.dragonest.deepbackendcard.global.lib.webClient.dto;
+package com.dragonest.deepbackendcard.global.lib.webClient.dto.response.data;
 
 import lombok.*;
 
