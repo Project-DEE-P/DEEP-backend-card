@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ImageUploadResponse {
 
-    private int code;
+    private int status;
     private String message;
     private ImageData data;
 }

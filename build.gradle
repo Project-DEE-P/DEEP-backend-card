@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.dragonest'
-version = 'v1.0.0'
+version = 'v2.0.0'
 
 java {
     sourceCompatibility = '17'

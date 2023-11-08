@@ -52,7 +52,7 @@ public class ImageCard extends BaseTimeEntity {
     @Column(nullable = false)
     private String image;
 
-    public void update(String name, String company, String address, String position, String mobile, String tel, String email, String fax, String homepage, String department) {
+    public void update(String name, String company, String address, String position, String mobile, String tel, String email, String fax, String homepage, String department, String image) {
         this.name = name;
         this.company = company;
         this.address = address;
@@ -63,5 +63,6 @@ public class ImageCard extends BaseTimeEntity {
         this.fax = fax;
         this.homepage = homepage;
         this.department = department;
+        this.image = image;
     }
 }

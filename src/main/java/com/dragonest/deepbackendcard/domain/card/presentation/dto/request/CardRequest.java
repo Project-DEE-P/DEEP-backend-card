@@ -2,6 +2,7 @@ package com.dragonest.deepbackendcard.domain.card.presentation.dto.request;
 
 import com.dragonest.deepbackendcard.domain.card.domain.Card;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import static com.dragonest.deepbackendcard.global.statics.ValidMessageConstants.*;
@@ -10,25 +11,28 @@ import static com.dragonest.deepbackendcard.global.statics.ValidMessageConstants
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class CardRequest {
 
-    @NotBlank(message = TEMPLATE_NOT_BLANK)
+    @NotNull(message = TEMPLATE_NOT_NULL)
     private String template;
 
-    @NotBlank(message = NAME_NOT_BLANK)
+    @NotNull(message = NAME_NOT_NULL)
     private String name;
 
-    @NotBlank(message = POSITION_NOT_BLANK)
+    @NotNull(message = POSITION_NOT_NULL)
     private String position;
 
-    @NotBlank(message = DEPARTMENT_NOT_BLANK)
+    @NotNull(message = DEPARTMENT_NOT_NULL)
     private String department;
 
-    @NotBlank(message = PHONE_NOT_BLANK)
+    @NotNull(message = PHONE_NOT_NULL)
     private String phone;
 
-    @NotBlank(message = EMAIL_NOT_BLANK)
+    @NotNull(message = EMAIL_NOT_NULL)
     private String email;
 
     private String github;
+
+    @NotBlank(message = IMAGE_NOT_BLANK)
+    private String image;
 
     public Card toEntity(String uid) {
         return Card.builder()
@@ -40,6 +44,7 @@ public class CardRequest {
                 .phone(phone)
                 .email(email)
                 .github(github)
+                .image(image)
                 .build();
     }
 }

@@ -31,31 +31,32 @@ public class RestRequest {
         return response.getBody();
     }
 
-    public ImageUploadResponse imageUpload(String url, String accessKey, MultipartBodyBuilder imageBuilder) {
-        ResponseEntity<ImageUploadResponse> response =  webClientConfig.webClient().method(HttpMethod.POST)
-                .uri(url)
-                .header("ACCESS-KEY", accessKey)
-                .contentType(MediaType.MULTIPART_FORM_DATA)
-                .body(BodyInserters.fromMultipartData(imageBuilder.build()))
-                .retrieve()
-                .toEntity(ImageUploadResponse.class)
-                .block();
-        if (response == null || response.getStatusCode().is4xxClientError() || response.getStatusCode().is5xxServerError()) {
-            throw ExternalAPIException.EXCEPTION;
-        }
-        return response.getBody();
-    }
-
-    public ImageUploadResponse removeImage(String url, String accessKey) {
-        ResponseEntity<ImageUploadResponse> response =  webClientConfig.webClient().method(HttpMethod.DELETE)
-                .uri(url)
-                .header("ACCESS-KEY", accessKey)
-                .retrieve()
-                .toEntity(ImageUploadResponse.class)
-                .block();
-        if (response == null || response.getStatusCode().is4xxClientError() || response.getStatusCode().is5xxServerError()) {
-            throw ExternalAPIException.EXCEPTION;
-        }
-        return response.getBody();
-    }
+//    public ImageUploadResponse imageUpload(String url, String accessKey, MultipartBodyBuilder imageBuilder) {
+//        ResponseEntity<ImageUploadResponse> response =  webClientConfig.webClient().method(HttpMethod.POST)
+//                .uri(url)
+//                .header("ACCESS-KEY", accessKey)
+//                .contentType(MediaType.MULTIPART_FORM_DATA)
+//                .body(BodyInserters.fromMultipartData(imageBuilder.build()))
+//                .retrieve()
+//                .toEntity(ImageUploadResponse.class)
+//                .block();
+//        if (response == null || response.getStatusCode().is4xxClientError() || response.getStatusCode().is5xxServerError()) {
+////            throw ExternalAPIException.EXCEPTION;
+//            throw new ExternalAPIException(response.getBody().getMessage());
+//        }
+//        return response.getBody();
+//    }
+//
+//    public ImageUploadResponse removeImage(String url, String accessKey) {
+//        ResponseEntity<ImageUploadResponse> response =  webClientConfig.webClient().method(HttpMethod.DELETE)
+//                .uri(url)
+//                .header("ACCESS-KEY", accessKey)
+//                .retrieve()
+//                .toEntity(ImageUploadResponse.class)
+//                .block();
+//        if (response == null || response.getStatusCode().is4xxClientError() || response.getStatusCode().is5xxServerError()) {
+//            throw ExternalAPIException.EXCEPTION;
+//        }
+//        return response.getBody();
+//    }
 }

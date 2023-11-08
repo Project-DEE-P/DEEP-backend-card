@@ -10,4 +10,8 @@ public class ExternalAPIException extends CustomException {
     private ExternalAPIException() {
         super(HttpStatus.BAD_GATEWAY, "External API server error.");
     }
+
+    public ExternalAPIException(String message) {
+        super(HttpStatus.BAD_GATEWAY, String.format("External API server error. (%s)", message));
+    }
 }

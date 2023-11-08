@@ -7,7 +7,6 @@ import com.dragonest.deepbackendcard.global.response.ResponseData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -23,9 +22,8 @@ public class ImageCardController {
 
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseData<Object> create(@RequestPart("request") ImageCardRequest request, @RequestPart("image") MultipartFile image, @RequestHeader("Authorization") String token) {
-        imageCardService.create(request, image, token);
-        return ResponseData.of(HttpStatus.CREATED.value(), SUCCESSFUL_CREATED);
+    public ResponseData<Long> create(@RequestBody ImageCardRequest request, @RequestHeader("Authorization") String token) {
+        return ResponseData.of(HttpStatus.CREATED.value(), SUCCESSFUL_CREATED, imageCardService.create(request, token));
     }
 
     @GetMapping("")

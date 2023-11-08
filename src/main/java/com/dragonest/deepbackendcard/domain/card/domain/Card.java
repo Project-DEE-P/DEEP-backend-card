@@ -40,7 +40,10 @@ public class Card extends BaseTimeEntity {
     @Column(nullable = false)
     private String github;
 
-    public void update(String template, String name, String position, String department, String phone, String email, String github) {
+    @Column(nullable = false)
+    private String image;
+
+    public void update(String template, String name, String position, String department, String phone, String email, String github, String image) {
         this.template = template;
         this.name = name;
         this.position = position;
@@ -48,5 +51,6 @@ public class Card extends BaseTimeEntity {
         this.phone = phone;
         this.email = email;
         this.github = github;
+        this.image = image;
     }
 }

@@ -50,7 +50,7 @@ public class CardService {
     public void update(CardRequest request, String id, String token) {
         ValidateData user = validate(token);
         Card card = cardRepository.findById(Long.valueOf(id)).orElseThrow(() -> CardNotFoundException.EXCEPTION);
-        card.update(request.getTemplate(), request.getName(), request.getPosition(), request.getDepartment(), request.getPhone(), request.getEmail(), request.getGithub());
+        card.update(request.getTemplate(), request.getName(), request.getPosition(), request.getDepartment(), request.getPhone(), request.getEmail(), request.getGithub(), request.getImage());
         cardRepository.save(card);
     }
 

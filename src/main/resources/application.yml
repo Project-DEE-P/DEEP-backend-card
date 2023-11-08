@@ -20,20 +20,19 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-  servlet:
-    multipart:
-      enabled: true
-      file-size-threshold: 2KB
-      max-file-size: 80MB
-      max-request-size: 90MB
+#  servlet:
+#    multipart:
+#      enabled: true
+#      file-size-threshold: 2KB
+#      max-file-size: 80MB
+#      max-request-size: 90MB
 
 webClient:
   servers:
     userServer:
-      path: http://220.122.166.177:4000
+      path: https://api.ddeep.store
 #      path: http://localhost:8081
-#      path: http://10.80.161.125:8081
-    imageServer:
-      key: d15ee2fe18d2ebe2ef7afda51ffd3114e5cd1f29dc8fd70e3ffee96b698ceed027a0
-      path: http://220.112.166.117:4000
+#    imageServer:
+#      key: d15ee2fe18d2ebe2ef7afda51ffd3114e5cd1f29dc8fd70e3ffee96b698ceed027a0
+#      path: https://api.ddeep.store
 #      path: http://localhost:8083
