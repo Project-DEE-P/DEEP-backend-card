@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -45,9 +46,9 @@ public class RememberService {
 
     public List<Card> getRememberTemplateCards(String token) {
         ValidateData user = validate(token);
-        List<Remember> remembers = rememberRepository.findAllByUserAndCardType(user.getUserId(), CardType.TEMPLATE).orElseThrow(() -> RememberNotFoundException.EXCEPTION);
+        Optional<List<Remember>> remembers = rememberRepository.findAllByUserAndCardType(user.getUserId(), CardType.TEMPLATE);
         List<Card> cards = new ArrayList<>();
-        for (Remember remember : remembers) {
+        for (Remember remember : remembers.orElseGet(ArrayList::new)) {
             cards.add(cardRepository.findById(remember.getCard()).orElseThrow(() -> CardNotFoundException.EXCEPTION));
         }
         return cards;
@@ -55,9 +56,9 @@ public class RememberService {
 
     public List<ImageCard> getRememberImageCards(String token) {
         ValidateData user = validate(token);
-        List<Remember> remembers = rememberRepository.findAllByUserAndCardType(user.getUserId(), CardType.IMAGE).orElseThrow(() -> RememberNotFoundException.EXCEPTION);
+        Optional<List<Remember>> remembers = rememberRepository.findAllByUserAndCardType(user.getUserId(), CardType.IMAGE);
         List<ImageCard> imageCards = new ArrayList<>();
-        for (Remember remember : remembers) {
+        for (Remember remember : remembers.orElseGet(ArrayList::new)) {
             imageCards.add(imageCardRepository.findById(remember.getCard()).orElseThrow(() -> ImageCardNotFoundException.EXCEPTION));
         }
         return imageCards;
