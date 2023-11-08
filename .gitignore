@@ -1,5 +1,5 @@
 /src/main/resources/application.yml
-logs
+logs/
 
 HELP.md
 .gradle
