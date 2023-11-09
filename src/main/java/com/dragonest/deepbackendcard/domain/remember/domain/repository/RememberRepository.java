@@ -13,4 +13,5 @@ public interface RememberRepository extends JpaRepository<Remember, Long> {
 
     Optional<List<Remember>> findAllByUserAndCardType(String user, CardType cardType);
     Optional<Remember> findAllByUserAndCardTypeAndCard(String user, CardType cardType, Long card);
+    Boolean existsByUserAndCard(String user, Long card);
 }

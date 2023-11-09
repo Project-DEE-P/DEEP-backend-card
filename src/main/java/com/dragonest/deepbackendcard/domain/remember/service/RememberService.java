@@ -5,6 +5,7 @@ import com.dragonest.deepbackendcard.domain.card.domain.ImageCard;
 import com.dragonest.deepbackendcard.domain.card.domain.repository.CardRepository;
 import com.dragonest.deepbackendcard.domain.card.domain.repository.ImageCardRepository;
 import com.dragonest.deepbackendcard.domain.card.enums.CardType;
+import com.dragonest.deepbackendcard.domain.card.exception.AlreadyRememberCardException;
 import com.dragonest.deepbackendcard.domain.card.exception.CardNotFoundException;
 import com.dragonest.deepbackendcard.domain.card.exception.ImageCardNotFoundException;
 import com.dragonest.deepbackendcard.domain.remember.exception.RememberNotFoundException;
@@ -41,6 +42,9 @@ public class RememberService {
     @Transactional(rollbackFor = Exception.class)
     public void create(CreateRememberRequest request, String token) {
         ValidateData user = validate(token);
+        if (rememberRepository.existsByUserAndCard(user.getUserId(), request.getCardId())) {
+            throw AlreadyRememberCardException.EXCEPTION;
+        }
         rememberRepository.save(request.toEntity(user.getUserId()));
     }
 
