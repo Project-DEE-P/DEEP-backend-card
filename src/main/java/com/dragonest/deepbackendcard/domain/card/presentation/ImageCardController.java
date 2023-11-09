@@ -4,6 +4,7 @@ import com.dragonest.deepbackendcard.domain.card.domain.ImageCard;
 import com.dragonest.deepbackendcard.domain.card.presentation.dto.request.ImageCardRequest;
 import com.dragonest.deepbackendcard.domain.card.service.ImageCardService;
 import com.dragonest.deepbackendcard.global.response.ResponseData;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class ImageCardController {
 
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseData<Long> create(@RequestBody ImageCardRequest request, @RequestHeader("Authorization") String token) {
+    public ResponseData<Long> create(@Valid @RequestBody ImageCardRequest request, @RequestHeader("Authorization") String token) {
         return ResponseData.of(HttpStatus.CREATED.value(), SUCCESSFUL_CREATED, imageCardService.create(request, token));
     }
 
@@ -40,7 +41,7 @@ public class ImageCardController {
 
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseData<Object> update(@RequestBody ImageCardRequest request, @PathVariable("id") String id, @RequestHeader("Authorization") String token) {
+    public ResponseData<Object> update(@Valid @RequestBody ImageCardRequest request, @PathVariable("id") String id, @RequestHeader("Authorization") String token) {
         imageCardService.update(request, id, token);
         return ResponseData.of(HttpStatus.OK.value(), SUCCESSFUL_OK);
     }

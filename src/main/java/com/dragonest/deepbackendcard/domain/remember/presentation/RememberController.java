@@ -5,6 +5,7 @@ import com.dragonest.deepbackendcard.domain.card.domain.ImageCard;
 import com.dragonest.deepbackendcard.domain.remember.presentation.dto.request.CreateRememberRequest;
 import com.dragonest.deepbackendcard.domain.remember.service.RememberService;
 import com.dragonest.deepbackendcard.global.response.ResponseData;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +24,7 @@ public class RememberController {
 
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseData<Object> create(@RequestBody CreateRememberRequest request, @RequestHeader("Authorization") String token) {
+    public ResponseData<Object> create(@Valid @RequestBody CreateRememberRequest request, @RequestHeader("Authorization") String token) {
         rememberService.create(request, token);
         return ResponseData.of(HttpStatus.CREATED.value(), SUCCESSFUL_CREATED);
     }
