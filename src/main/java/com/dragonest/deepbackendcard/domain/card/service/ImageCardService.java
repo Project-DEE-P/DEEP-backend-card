@@ -37,7 +37,7 @@ public class ImageCardService {
     @Transactional(rollbackFor = Exception.class)
     public Long create(ImageCardRequest request, String token) {
         ValidateData user = validate(token);
-        List<ImageCard> imageCards = imageCardRepository.findAllByUid(user.getUserId()).orElseThrow(() -> ImageCardNotFoundException.EXCEPTION);
+        List<ImageCard> imageCards = imageCardRepository.findAllByUid(user.getUserId());
         if (imageCards.size() >= 10) {
             throw CardNotCreateException.EXCEPTION;
         }
@@ -46,7 +46,7 @@ public class ImageCardService {
 
     public List<ImageCard> getCards(String token) {
         ValidateData user = validate(token);
-        return imageCardRepository.findAllByUid(user.getUserId()).orElseThrow(() -> ImageCardNotFoundException.EXCEPTION);
+        return imageCardRepository.findAllByUid(user.getUserId());
     }
 
     public ImageCard getCard(String id) {

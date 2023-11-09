@@ -31,7 +31,7 @@ public class CardService {
     @Transactional(rollbackFor = Exception.class)
     public void create(CardRequest request, String token) {
         ValidateData user = validate(token);
-        List<Card> cards = cardRepository.findAllByUid(user.getUserId()).orElseThrow(() -> CardNotFoundException.EXCEPTION);
+        List<Card> cards = cardRepository.findAllByUid(user.getUserId());
         if (cards.size() >= 10) {
             throw CardNotCreateException.EXCEPTION;
         }
@@ -40,7 +40,7 @@ public class CardService {
 
     public List<Card> getCards(String token) {
         ValidateData user = validate(token);
-        return cardRepository.findAllByUid(user.getUserId()).orElseThrow(() -> CardNotFoundException.EXCEPTION);
+        return cardRepository.findAllByUid(user.getUserId());
     }
 
     public Card getCard(String id) {
